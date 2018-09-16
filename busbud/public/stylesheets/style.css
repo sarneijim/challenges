@@ -1,5 +1,156 @@
-body {
-  background: red; }
+.btn {
+  padding: 10px; }
 
-a {
-  color: #00B7FF; }
+.btn-primary {
+  background: #f19020;
+  border-color: #f19020;
+  color: #ffffff; }
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+  background: #f7a500;
+  border-color: #f19020; }
+
+.btn-primary:active, .btn-primary.active {
+  background: #f7a500;
+  border-color: #f19020;
+  box-shadow: none; }
+
+body {
+  color: #127ccb; }
+
+div:hover a {
+  text-decoration: none; }
+
+.navbar {
+  position: absolute;
+  display: flex;
+  width: 100%; }
+
+.header .navbar .autor {
+  color: #fff; }
+
+.search {
+  background: #127ccb;
+  padding: 50px 10px 10px; }
+
+#search__btn {
+  margin: 20px 0;
+  font-weight: 600; }
+
+label {
+  color: #fff;
+  font-size: 0.8em;
+  font-weight: 600; }
+
+@media (min-width: 768px) {
+  .search {
+    background: linear-gradient(-225deg, rgba(0, 101, 168, 0.6) 0%, rgba(0, 36, 61, 0.4) 50%), url(/images/adult-2693054_1920.jpg);
+    padding: 80px 10px 40px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; }
+  form {
+    width: 800px;
+    margin: auto; } }
+
+.promotion {
+  position: relative; }
+  .promotion::before {
+    z-index: 2;
+    background-color: #f19020;
+    height: calc(100% - 10px);
+    width: 5px;
+    font-weight: bold;
+    content: '';
+    border-bottom: solid 1px #fff;
+    position: absolute;
+    left: 10px;
+    top: 10px; }
+  .promotion a {
+    color: #0f3852; }
+
+.promotion__intro {
+  padding-bottom: 5px; }
+
+.promotion__title {
+  color: #f19020;
+  font-size: 1.3em;
+  padding: 10px 20px 0;
+  font-weight: 600; }
+
+.promotion__information {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px; }
+
+.promotion__main {
+  display: flex;
+  height: 300px;
+  flex-direction: column;
+  align-items: flex-end;
+  overflow: hidden;
+  position: relative; }
+  .promotion__main a {
+    color: #0f3852; }
+
+.promotion__main--details {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%; }
+
+.promotion__main--logo {
+  display: flex;
+  justify-content: center; }
+  .promotion__main--logo img {
+    width: 60%;
+    height: 60%; }
+
+.promotion__main--date, .promotion__main--link {
+  text-align: center;
+  font-weight: 600; }
+
+.promotion__main--link {
+  color: #0f3852;
+  padding-top: 50px; }
+  .promotion__main--link span {
+    padding: 10px;
+    border: 3px solid #0f3852;
+    border-radius: 10px; }
+
+@media (min-width: 768px) {
+  .promotion__intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0px; }
+  .promotion__information--date {
+    padding-left: 40px; } }
+
+.promotion__main--background {
+  background: linear-gradient(-225deg, rgba(0, 101, 168, 0.6) 0%, rgba(241, 144, 32, 0.12) 50%), url(/images/concert-1209323_1920.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1; }
+
+.promotion__main--details {
+  z-index: 2;
+  pointer-events: none; }
+
+.promotion__main--background {
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s; }
+
+.promotion__main--background:hover, .promotion__main--background:focus {
+  -ms-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2); }

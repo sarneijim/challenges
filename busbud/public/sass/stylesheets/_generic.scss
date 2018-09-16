@@ -1,0 +1,40 @@
+// Colors
+
+$yellow: #f19020;
+$blue: #127ccb;
+$light-gray: #dbdbdb;
+$dark-gray: #777;
+$white: #fff;
+$black: #1f242b;
+
+// Bootstrap customization
+
+.btn{
+      padding: 10px;
+}
+
+.btn-primary {
+    background: $yellow;
+    border-color: $yellow;
+    color: #ffffff;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #f7a500;
+    border-color: $yellow;
+}
+
+.btn-primary:active, .btn-primary.active {
+    background: #f7a500;
+    border-color: $yellow;
+    box-shadow: none;
+}
+
+// Total generic styles
+body{
+  color: $blue;
+}
+
+div:hover a{
+  text-decoration: none;
+}

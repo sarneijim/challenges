@@ -1,0 +1,114 @@
+.promotion{
+  position:relative;
+  &::before {
+    z-index: 2;
+    background-color: $yellow;
+    height: calc(100% - 10px);
+    width: 5px;
+    font-weight: bold;
+    content: '';
+    border-bottom: solid 1px #fff;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
+  a{
+    color: #0f3852;
+  }
+}
+.promotion__intro{
+  padding-bottom: 5px;
+}
+.promotion__title{
+  color: $yellow;
+  font-size: 1.3em;
+  padding: 10px 20px 0;
+  font-weight: 600;
+}
+.promotion__information{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+.promotion__main{
+  display: flex;
+  height: 300px;
+  flex-direction: column;
+  align-items: flex-end;
+  overflow: hidden;
+  position:relative;
+  a{
+    color: #0f3852;
+  }
+
+}
+.promotion__main--details{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.promotion__main--logo{
+  display:  flex;
+  justify-content:  center;
+  img{
+    width: 60%;
+    height:60%;
+  }
+}
+.promotion__main--date, .promotion__main--link{
+  text-align:center;
+  font-weight: 600;
+}
+.promotion__main--link{
+  color: #0f3852;
+  padding-top: 50px;
+  span{
+    padding: 10px;
+    border: 3px solid #0f3852;
+    border-radius: 10px;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .promotion__intro{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0px;
+  }
+  .promotion__information--date{
+    padding-left: 40px;
+  }
+}
+.promotion__main--background{
+  background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(241,144,32,0.12) 50%), url(/images/concert-1209323_1920.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+}
+.promotion__main--details{
+  z-index: 2;
+  pointer-events: none;
+}
+.promotion__main--background {
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
+}
+
+.promotion__main--background:hover, .promotion__main--background:focus{
+  -ms-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+}

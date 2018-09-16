@@ -1,0 +1,26 @@
+.search{
+  background: $blue;
+  padding: 50px 10px 10px;
+}
+#search__btn{
+  margin: 20px 0;
+  font-weight: 600;
+}
+label{
+  color: $white;
+  font-size: 0.8em;
+  font-weight: 600;
+}
+@media (min-width: 768px) {
+  .search{
+    background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.4) 50%), url(/images/adult-2693054_1920.jpg);
+    padding: 80px 10px 40px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+ form{
+    width: 800px;
+    margin: auto;
+  }
+}

@@ -1,10 +1,4 @@
-body{
- background: red;
-}
-
-
-
-a {
-  color: #00B7FF;
-}
-
+@import 'generic';
+@import 'header';
+@import 'search';
+@import 'promotion';
