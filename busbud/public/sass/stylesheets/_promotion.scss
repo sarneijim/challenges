@@ -20,7 +20,6 @@
   padding-bottom: 5px;
 }
 .promotion__title{
-  color: $yellow;
   font-size: 1.3em;
   padding: 10px 20px 0;
   font-weight: 600;
@@ -84,7 +83,7 @@
   }
 }
 .promotion__main--background{
-  background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(241,144,32,0.12) 50%), url(/images/concert-1209323_1920.jpg);
+  background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(241,144,32,0.12) 50%), url(/images/festival.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

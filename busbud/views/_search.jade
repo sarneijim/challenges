@@ -1,23 +1,17 @@
 .search
-  .row
-    .col.col-xs-12
-      form(method='POST' action='/register')
-        .row
-          .col.col-12.col-md-3
-            .form-group
-              label(for='origin') From:
-              input#origin.form-control(type='text', placeholder='City' name='origin')
-          .col.col-12.col-md-3
-            .form-group
-              label(for='destination') To:
-              input#destination.form-control(type='destination', placeholder='City' name='destination')
-          .col.col-6.col-md-3
-            .form-group
-              label(for='departure') Depart:
-              input#departure.form-control(type='date', placeholder='departure' name='departure')
-          .col.col-6.col-md-3
-            .form-group
-              label(for='passengers') Travelers:
-              input#passengers.form-control(type='passengers' name='passengers')
-          .col.col-12.col-md-4.offset-md-4
-            button#search__btn.btn.btn-primary.btn-block(type='submit') Search for buses
+  form.search__form(method='GET' action='/results')
+    .search__form__field
+      .form-group
+        label(for='origin') From:
+        input#origin.form-control(type='text', placeholder='City' name='origin')
+      .form-group
+        label(for='destination') To:
+        input#destination.form-control(type='destination', placeholder='City' name='destination')
+      .form-group
+        label(for='departure') Depart:
+        input#departure.form-control(type='date', placeholder='departure' name='departure')
+      .form-group
+        label(for='passengers') Travelers:
+        input#passengers.form-control(type='passengers' name='passengers')
+    .search__form__button
+      button#search__btn.btn.btn-primary.btn-block(type='submit') Search for buses

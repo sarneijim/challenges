@@ -16,26 +16,41 @@
   box-shadow: none; }
 
 body {
-  color: #127ccb; }
+  color: #fff;
+  background: #127ccb; }
 
 div:hover a {
   text-decoration: none; }
 
+.container--main {
+  padding-top: 40px; }
+
 .navbar {
   position: absolute;
   display: flex;
-  width: 100%; }
+  width: 100%;
+  background-color: #127ccb; }
 
 .header .navbar .autor {
   color: #fff; }
 
 .search {
   background: #127ccb;
-  padding: 50px 10px 10px; }
+  padding: 10px;
+  display: flex; }
+
+.search__form {
+  width: 100%; }
+
+.search__form__button {
+  margin: 0 10px; }
 
 #search__btn {
   margin: 20px 0;
   font-weight: 600; }
+
+.form-group {
+  padding: 0 10px; }
 
 label {
   color: #fff;
@@ -43,15 +58,42 @@ label {
   font-weight: 600; }
 
 @media (min-width: 768px) {
-  .search {
-    background: linear-gradient(-225deg, rgba(0, 101, 168, 0.6) 0%, rgba(0, 36, 61, 0.4) 50%), url(/images/adult-2693054_1920.jpg);
+  .search__form__field {
+    display: flex; }
+  .search__form {
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+    flex-direction: column; } }
+
+@media (min-width: 1024px) {
+  .search__form__field {
+    display: flex; }
+  .search__form {
+    display: flex;
+    flex-direction: row;
+    max-width: 1000px;
+    width: 100%; }
+  #search__btn {
+    margin: 29px 0 20px;
+    padding: 6px 10px; } }
+
+@media (min-width: 768px) {
+  .home .search {
+    background: linear-gradient(-225deg, rgba(0, 101, 168, 0.6) 0%, rgba(241, 144, 32, 0.12) 50%), url(/images/adult-2693054_1920.jpg);
     padding: 80px 10px 40px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover; }
-  form {
-    width: 800px;
-    margin: auto; } }
+  .home .search__form {
+    display: inline-block;
+    max-width: 800px;
+    width: 100%; }
+  .home .search__form__button {
+    width: 300px;
+    margin: 0 auto; }
+  .home #search__btn {
+    padding: 10px; } }
 
 .promotion {
   position: relative; }
@@ -73,7 +115,6 @@ label {
   padding-bottom: 5px; }
 
 .promotion__title {
-  color: #f19020;
   font-size: 1.3em;
   padding: 10px 20px 0;
   font-weight: 600; }
@@ -128,7 +169,7 @@ label {
     padding-left: 40px; } }
 
 .promotion__main--background {
-  background: linear-gradient(-225deg, rgba(0, 101, 168, 0.6) 0%, rgba(241, 144, 32, 0.12) 50%), url(/images/concert-1209323_1920.jpg);
+  background: linear-gradient(-225deg, rgba(0, 101, 168, 0.6) 0%, rgba(241, 144, 32, 0.12) 50%), url(/images/festival.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -154,3 +195,60 @@ label {
   -webkit-transform: scale(1.2);
   -o-transform: scale(1.2);
   transform: scale(1.2); }
+
+.results__header {
+  background-color: #127ccb;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 10px 20px; }
+
+.results__header__title {
+  font-size: 20px;
+  display: inline-block;
+  padding-right: 60px; }
+
+.results__title--arrow {
+  font-size: 14px; }
+
+.results__header__details {
+  font-size: 16px;
+  display: inline-block; }
+
+.results__details--data {
+  padding: 5px 10px 0px; }
+
+.results .results__header--search {
+  background: #fff;
+  min-width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 18px; }
+
+.results .results__header--search:not([href]):not([tabindex]) {
+  color: #127ccb; }
+
+.results__list {
+  padding: 0;
+  list-style-type: none; }
+
+.results__item {
+  display: flex;
+  border: 1px solid #dbdbdb;
+  flex-direction: column;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #e9ecefa1; }
+
+.results__item__date {
+  font-weight: 600;
+  color: #777; }
+
+.results__item__location {
+  color: #dbdbdb; }

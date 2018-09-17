@@ -3,6 +3,7 @@ var path = require('path');
 var sassMiddleware = require('node-sass-middleware');
 
 var indexRouter = require('./routes/index');
+var resultsRouter = require('./routes/results');
 var usersRouter = require('./routes/users');
 
 var app = express();
@@ -21,6 +22,7 @@ app.use(sassMiddleware({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/results', resultsRouter);
 app.use('/users', usersRouter);
 
 module.exports = app;

@@ -32,9 +32,15 @@ $black: #1f242b;
 
 // Total generic styles
 body{
-  color: $blue;
+  color: $white;
+  background: $blue;
 }
 
 div:hover a{
   text-decoration: none;
+}
+
+//Customizer container
+.container--main{
+  padding-top: 40px;
 }
