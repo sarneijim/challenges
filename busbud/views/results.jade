@@ -11,25 +11,11 @@ block content
         .results__header__details
           span.results__details--data 26-05-02
           span.results__details--data 2 passangers
-      a.results__header--search.fa.fa-search(data-toggle="collapse", data-target="#search")
+      a.results__header--search(data-toggle="collapse", data-target="#search")
     #search.collapse
       include _search.jade
 
-    ul.results__list
-      each val, i in results.departure
-        li.results__item
-          .results__item__departure
-            .results__item__date= results.departure[i]
-            .results__item__location= results.origin[i]
-          .results__item__arrival
-            .results__item__arrival--time
-              .results__item__date= results.arrival[i]
-              .results__item__arrival--time-sub= results.diffDays[i]
-            .results__item__location= results.destination[i]
-          .results__item__diffTime= results.diffTime[i]
-
-          .results__item__price
-            .results__item__price--number= "24 $CAM"
+    include _list_results.jade
 
 
 

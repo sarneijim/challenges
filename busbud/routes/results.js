@@ -14,8 +14,6 @@ router.get('/', function(req, res, next) {
 
   search(req.query, res);
 
-
-
 });
 
 module.exports = router;
@@ -24,12 +22,9 @@ function search(params, res) {
   url = "https://napi.busbud.com/x-departures/dr5reg/f25dvk/2018-11-09";
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
-    var response = "hola";
     if (xhr.readyState === 4) {
-      console.log("error");
       if (xhr.status === 200 || xhr.status === 304) {
         var response = JSON.parse(xhr.responseText);
-
         //Provide client side "results"
         var results = {
           departure: [],
@@ -37,24 +32,25 @@ function search(params, res) {
           diffDays: [],
           diffTime: [],
           origin: [],
-          destination: []
+          destination: [],
+          price: []
         };
 
         response.departures.forEach(function(item_specific) {
 
           //Departure time
-          var departure = dateFormat(item_specific.departure_time, "UTC:h:MM  TT");
+          var departure = dateFormat(item_specific.departure_time, "UTC:hh:MM  TT");
           results.departure.push(departure);
 
           // Arrival time
-          var arrival = dateFormat(item_specific.arrival_time, "UTC:h:MM  TT");
+          var arrival = dateFormat(item_specific.arrival_time, "UTC:hh:MM  TT");
           results.arrival.push(arrival);
 
           // Days difference
           var date1 = new Date(dateFormat(item_specific.departure_time,"yyyy-mm-dd"));
           var date2 = new Date(dateFormat(item_specific.arrival_time,"yyyy-mm-dd"));
           var diffDays = parseInt((date2 - date1) / (1000 * 60 * 60 * 24));
-          results.diffDays.push(diffDays > 0 ? diffDays : "");
+          results.diffDays.push(diffDays > 0 ? "+" + diffDays : "");
 
           //Duration trip
           var time1 = new Date(item_specific.departure_time);
@@ -77,8 +73,11 @@ function search(params, res) {
           });
           results.origin.push(origin);
           results.destination.push(destination);
+
+          //Price
+          price = item_specific.prices.total / 100 + "CAD";
+          results.price.push(price);
         });
-        console.log(results);
         res.render('results', { title: "Busbud-Results", results: results });
       }
     }

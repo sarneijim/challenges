@@ -3,13 +3,17 @@
     .search__form__field
       .form-group
         label(for='origin') From:
-        input#origin.form-control(type='text', placeholder='City' name='origin')
+        input#origin.form-control(type='text' placeholder='City' name='origin' autocomplete='off')
+        ul.search__options
       .form-group
         label(for='destination') To:
-        input#destination.form-control(type='destination', placeholder='City' name='destination')
+        input#destination.form-control(type='text' placeholder='City' name='destination' autocomplete='off')
+        ul.search__options
       .form-group
         label(for='departure') Depart:
-        input#departure.form-control(type='date', placeholder='departure' name='departure')
+        #bus-datepicker(class='input-daterange input-group')
+          input#departure.form-control(type='text' placeholder='dd-mm-yyyy' autocomplete="nope" class='input-sm form-control' name='departure' data-date-format='DD, MM d' )
+
       .form-group
         label(for='passengers') Travelers:
         input#passengers.form-control(type='passengers' name='passengers')

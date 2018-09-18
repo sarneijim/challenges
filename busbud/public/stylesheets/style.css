@@ -50,12 +50,67 @@ div:hover a {
   font-weight: 600; }
 
 .form-group {
-  padding: 0 10px; }
+  padding: 0 10px;
+  position: relative; }
 
 label {
   color: #fff;
   font-size: 0.8em;
   font-weight: 600; }
+
+.search__options {
+  position: absolute;
+  background: #fff;
+  color: #777;
+  top: 69px;
+  border-radius: 4px;
+  width: calc(100% - 20px);
+  padding: 0;
+  list-style: none;
+  z-index: 1; }
+  .search__options li {
+    padding: 5px 14px; }
+    .search__options li:hover {
+      background-color: #dbdbdb;
+      border-radius: 5px; }
+
+#bus-datepicker:after {
+  font-family: FontAwesome;
+  content: "\f073";
+  position: absolute;
+  right: 10px;
+  top: 7px;
+  color: #777;
+  pointer-events: none;
+  z-index: 3; }
+
+.datepicker {
+  width: calc(100% - 40px);
+  display: flex;
+  border: 2px solid #f19020;
+  color: #777;
+  justify-content: stretch;
+  text-align: center;
+  padding: 0; }
+  .datepicker .datepicker-days, .datepicker .table-condensed {
+    width: 100%; }
+  .datepicker thead {
+    border-bottom: 1px solid #f19020; }
+    .datepicker thead tr {
+      background: #f19020;
+      color: #fff; }
+      .datepicker thead tr:last-child {
+        background: #fff;
+        color: #f19020; }
+      .datepicker thead tr:first-child {
+        height: 0; }
+  .datepicker td:hover {
+    background: #dbdbdb;
+    border-radius: 3px; }
+  .datepicker td.disabled {
+    color: #dbdbdb; }
+    .datepicker td.disabled:hover {
+      background-color: #fff; }
 
 @media (min-width: 768px) {
   .search__form__field {
@@ -64,7 +119,9 @@ label {
     max-width: 800px;
     width: 100%;
     margin: auto;
-    flex-direction: column; } }
+    flex-direction: column; }
+  .datepicker {
+    width: calc(180px); } }
 
 @media (min-width: 1024px) {
   .search__form__field {
@@ -210,10 +267,10 @@ label {
   padding-right: 60px; }
 
 .results__title--arrow {
-  font-size: 14px; }
+  font-size: 16px; }
 
 .results__header__details {
-  font-size: 16px;
+  font-size: 14px;
   display: inline-block; }
 
 .results__details--data {
@@ -229,6 +286,13 @@ label {
   justify-content: center;
   align-items: center;
   margin-right: 18px; }
+  .results .results__header--search:before {
+    font-family: FontAwesome;
+    content: "\f002"; }
+
+.results__header--search[aria-expanded="true"]:before {
+  content: "\f068";
+  font-size: 0.8em; }
 
 .results .results__header--search:not([href]):not([tabindex]) {
   color: #127ccb; }
@@ -239,16 +303,81 @@ label {
 
 .results__item {
   display: flex;
-  border: 1px solid #dbdbdb;
-  flex-direction: column;
-  margin: 5px;
+  margin: 10px;
   padding: 10px;
   border-radius: 5px;
-  background-color: #e9ecefa1; }
+  background-color: #ffffffde;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #f19020; }
+  .results__item:hover .results__item__price {
+    color: #fff;
+    background-color: #f19020; }
+
+.results__item__main {
+  position: relative;
+  padding: 0 0 0 25px; }
+  .results__item__main:before {
+    position: absolute;
+    content: "";
+    background-color: #f19020;
+    width: 2px;
+    height: calc(100% - 24px);
+    left: 5px;
+    border-radius: 30%; }
+  .results__item__main:after {
+    position: absolute;
+    font-family: FontAwesome;
+    content: "\f207";
+    color: #f19020;
+    bottom: 0px;
+    left: 0; }
+
+.results__item__arrival--time {
+  display: flex;
+  position: relative; }
 
 .results__item__date {
   font-weight: 600;
-  color: #777; }
+  color: #777;
+  padding-right: 22px; }
+
+.results__item__arrival--time-sub {
+  font-weight: 600;
+  color: #777;
+  font-size: 12px;
+  position: absolute;
+  left: 72px; }
 
 .results__item__location {
-  color: #dbdbdb; }
+  color: #777;
+  font-size: 0.9em; }
+
+.results__item__details {
+  text-align: center; }
+
+.results__item__diffTime {
+  color: #777;
+  font-size: 0.8em;
+  margin: 3px; }
+  .results__item__diffTime:before {
+    font-family: FontAwesome;
+    content: "\f017";
+    color: #777;
+    margin-right: 5px; }
+
+.results__item__price {
+  font-weight: 600;
+  color: #f19020;
+  padding: 2px 5px;
+  border-radius: 5px; }
+
+@media (min-width: 768px) {
+  .results__item__departure, .results__item__arrival, .results__item__details {
+    display: flex;
+    align-items: center; }
+  .results__item__main {
+    width: 65%; }
+  .results__item__details {
+    flex-grow: 1;
+    justify-content: space-between; } }

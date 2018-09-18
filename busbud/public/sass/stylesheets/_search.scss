@@ -15,13 +15,81 @@
 }
 .form-group{
   padding: 0 10px;
+  position: relative;
 }
 label{
   color: $white;
   font-size: 0.8em;
   font-weight: 600;
 }
-
+.search__options{
+  position: absolute;
+  background: $white;
+  color: $dark-gray;
+  top: 69px;
+  border-radius: 4px;
+  width: calc(100% - 20px);
+  padding: 0;
+  list-style: none;
+  z-index: 1;
+  li{
+    padding: 5px 14px;
+    &:hover{
+      background-color: $light-gray;
+      border-radius:5px;
+    }
+  }
+}
+#bus-datepicker{
+  &:after {
+    font-family: FontAwesome;
+    content: "\f073";
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    color: $dark-gray;
+    pointer-events: none;
+    z-index: 3;
+  }
+}
+.datepicker{
+  width: calc(100% - 40px);
+  display: flex;
+  border: 2px solid $yellow;
+  color: $dark-gray;
+  justify-content: stretch;
+  text-align: center;
+  padding: 0;
+  .datepicker-days, .table-condensed{
+    width: 100%;
+  }
+  thead{
+    border-bottom: 1px solid $yellow;
+    tr{
+      background:  $yellow;
+      color:  $white;
+      &:last-child{
+        background:  $white;
+        color:  $yellow;
+      }
+      &:first-child{
+        height: 0;
+      }
+    }
+  }
+  td{
+    &:hover{
+      background: $light-gray;
+      border-radius: 3px;
+    }
+    &.disabled{
+      color: $light-gray;
+      &:hover{
+        background-color: $white;
+      }
+    }
+  }
+}
 //Tablet resolution
 @media (min-width: 768px) {
   .search__form__field{
@@ -32,6 +100,9 @@ label{
     width:100%;
     margin: auto;
     flex-direction: column;
+  }
+  .datepicker{
+    width: calc(180px);
   }
 }
 
@@ -50,7 +121,6 @@ label{
     margin: 29px 0 20px;
     padding: 6px 10px;
   }
-
 }
 
 // Exclusive home
