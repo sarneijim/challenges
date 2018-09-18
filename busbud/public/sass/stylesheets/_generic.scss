@@ -10,24 +10,29 @@ $black: #1f242b;
 // Bootstrap customization
 
 .btn{
-      padding: 10px;
+  padding: 10px;
 }
 
 .btn-primary {
-    background: $yellow;
-    border-color: $yellow;
-    color: #ffffff;
+  background: $yellow;
+  border-color: $yellow;
+  color: #ffffff;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-    background: #f7a500;
-    border-color: $yellow;
+  background: #f7a500;
+  border-color: $yellow;
 }
 
 .btn-primary:active, .btn-primary.active {
-    background: #f7a500;
-    border-color: $yellow;
-    box-shadow: none;
+  background: #f7a500;
+  border-color: $yellow;
+  box-shadow: none;
+}
+
+.btn-primary.disabled, .btn-primary:disabled{
+  background: $yellow;
+  border-color: $yellow;
 }
 
 // Total generic styles

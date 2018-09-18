@@ -15,6 +15,10 @@
   border-color: #f19020;
   box-shadow: none; }
 
+.btn-primary.disabled, .btn-primary:disabled {
+  background: #f19020;
+  border-color: #f19020; }
+
 body {
   color: #fff;
   background: #127ccb; }
@@ -51,18 +55,25 @@ div:hover a {
 
 .form-group {
   padding: 0 10px;
-  position: relative; }
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%; }
 
-label {
+.form-control[readonly] {
+  background: #fff; }
+
+label, .label {
   color: #fff;
   font-size: 0.8em;
-  font-weight: 600; }
+  font-weight: 600;
+  margin-bottom: .5rem; }
 
 .search__options {
   position: absolute;
   background: #fff;
   color: #777;
-  top: 69px;
+  top: 66px;
   border-radius: 4px;
   width: calc(100% - 20px);
   padding: 0;
@@ -71,8 +82,9 @@ label {
   .search__options li {
     padding: 5px 14px; }
     .search__options li:hover {
-      background-color: #dbdbdb;
-      border-radius: 5px; }
+      background-color: #f19020;
+      color: #fff;
+      border-radius: 4px; }
 
 #bus-datepicker:after {
   font-family: FontAwesome;
@@ -87,7 +99,7 @@ label {
 .datepicker {
   width: calc(100% - 40px);
   display: flex;
-  border: 2px solid #f19020;
+  border: 2px solid #dbdbdb;
   color: #777;
   justify-content: stretch;
   text-align: center;
@@ -95,22 +107,90 @@ label {
   .datepicker .datepicker-days, .datepicker .table-condensed {
     width: 100%; }
   .datepicker thead {
-    border-bottom: 1px solid #f19020; }
+    border-bottom: 1px solid #dbdbdb; }
     .datepicker thead tr {
-      background: #f19020;
-      color: #fff; }
+      background: #dbdbdb;
+      color: #777; }
       .datepicker thead tr:last-child {
-        background: #fff;
-        color: #f19020; }
+        background: #fff; }
+        .datepicker thead tr:last-child th {
+          font-weight: normal; }
       .datepicker thead tr:first-child {
         height: 0; }
   .datepicker td:hover {
-    background: #dbdbdb;
+    background: #f19020;
+    color: #fff;
     border-radius: 3px; }
   .datepicker td.disabled {
     color: #dbdbdb; }
     .datepicker td.disabled:hover {
       background-color: #fff; }
+  .datepicker th.prev:hover, .datepicker th.next:hover {
+    background: #f19020;
+    color: #fff; }
+  .datepicker .datepicker-switch {
+    pointer-events: none; }
+
+.passengers .form-control:after {
+  font-family: FontAwesome;
+  content: "\f0c0";
+  position: absolute;
+  right: 20px;
+  color: #777; }
+
+.passengers__details {
+  position: absolute;
+  top: 66px;
+  width: calc(100% - 20px);
+  background: #fff;
+  color: #777;
+  border-radius: 4px;
+  padding: 5px 0;
+  display: none;
+  z-index: 1; }
+  .passengers__details label {
+    margin-bottom: 0;
+    color: #777;
+    width: 50%;
+    padding: 5px 14px;
+    font-size: 0.9em;
+    font-weight: normal; }
+
+.passengers__details__item, .passengers__details__item--information {
+  display: flex;
+  align-items: center; }
+
+.passengers__details__item--information {
+  width: 50%;
+  justify-content: space-between;
+  width: 60px;
+  margin: auto; }
+  .passengers__details__item--information input {
+    width: 26px;
+    padding: 0;
+    height: auto;
+    text-align: center;
+    border: none;
+    color: #777;
+    pointer-events: none; }
+    .passengers__details__item--information input:disabled {
+      background: transparent; }
+
+.passenger--add:before {
+  font-family: FontAwesome;
+  content: "\f055";
+  color: #dbdbdb; }
+
+.passenger--add:hover:before {
+  color: #f19020; }
+
+.passenger--subtract:before {
+  font-family: FontAwesome;
+  content: "\f056";
+  color: #dbdbdb; }
+
+.passenger--subtract:hover:before {
+  color: #f19020; }
 
 @media (min-width: 768px) {
   .search__form__field {
@@ -291,8 +371,9 @@ label {
     content: "\f002"; }
 
 .results__header--search[aria-expanded="true"]:before {
-  content: "\f068";
-  font-size: 0.8em; }
+  content: "\f106";
+  font-size: 0.8em;
+  font-weight: 600; }
 
 .results .results__header--search:not([href]):not([tabindex]) {
   color: #127ccb; }

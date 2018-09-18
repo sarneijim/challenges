@@ -39,8 +39,9 @@
 }
 .results__header--search[aria-expanded="true"] {
   &:before {
-    content: "\f068";
+    content: "\f106";
     font-size: 0.8em;
+    font-weight: 600;
   }
 }
 .results .results__header--search:not([href]):not([tabindex]){

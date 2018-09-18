@@ -12,10 +12,31 @@
       .form-group
         label(for='departure') Depart:
         #bus-datepicker(class='input-daterange input-group')
-          input#departure.form-control(type='text' placeholder='dd-mm-yyyy' autocomplete="nope" class='input-sm form-control' name='departure' data-date-format='DD, MM d' )
+          input#departure.form-control(type='text' placeholder='dd-mm-yyyy' autocomplete="off" class='input-sm form-control' name='departure' data-date-format='DD, MM d' readonly= "readonly")
+      .passengers.form-group
+        .label Travelers:
+        .form-control
+          span.passenger--number 1
+          span.passenger--sub  passenger
+        .passengers__details
+          .passengers__details__item
+            label(for='adults') Adults:
+            .passengers__details__item--information
+              .passenger--subtract
+              input#adults.form-control(type='text' name='adults' value= "1")
+              .passenger--add
+          .passengers__details__item
+            label(for='childs') Child:
+            .passengers__details__item--information
+              .passenger--subtract
+              input#childs.form-control(type='text' name='childs' value= "0")
+              .passenger--add
+          .passengers__details__item
+            label(for='seniors') Seniors:
+            .passengers__details__item--information
+              .passenger--subtract
+              input#seniors.form-control(type='text' name='seniors' value= "0")
+              .passenger--add
 
-      .form-group
-        label(for='passengers') Travelers:
-        input#passengers.form-control(type='passengers' name='passengers')
     .search__form__button
-      button#search__btn.btn.btn-primary.btn-block(type='submit') Search for buses
+      button#search__btn.btn.btn-primary.btn-block.error-origin.error-destination(type='submit' disabled) Search for buses

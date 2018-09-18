@@ -20,6 +20,7 @@ module.exports = router;
 
 function search(params, res) {
   url = "https://napi.busbud.com/x-departures/dr5reg/f25dvk/2018-11-09";
+  var adult = "adult=3";
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
@@ -83,9 +84,15 @@ function search(params, res) {
     }
 
   };
-  xhr.open("GET", url, true);
+  xhr.open("GET", url+"?"+params, true);
   xhr.setRequestHeader( 'Content-Type',   'application/json' );
   xhr.setRequestHeader( 'Accept', 'application/vnd.busbud+json; version=2; profile=https://schema.busbud.com/v2/' );
   xhr.setRequestHeader("X-Busbud-Token", "PARTNER_AHm3M6clSAOoyJg4KyCg7w");
   xhr.send();
 }
+
+
+
+
+
+
