@@ -38,6 +38,14 @@ div:hover a {
 .header .navbar .autor {
   color: #fff; }
 
+.autor {
+  padding-right: 20px; }
+
+.header-details-language {
+  padding: 0 5px; }
+  .header-details-language img {
+    height: 20px; }
+
 .search {
   background: #127ccb;
   padding: 10px;

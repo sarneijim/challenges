@@ -28,16 +28,17 @@ var results = {
 
 /* GET results page. */
 router.get('/', function(req, res, next) {
+  res.cookie('locale', req.params.locale);
   // Params
   origin = req.query.origin;
   destination = req.query.destination;
   departure = req.query.departure;
   passengers = req.query.passengers;
-  search(req.query, res);
+  search(req.query, res, req);
 
 });
 
-function search(params, res) {
+function search(params, res, req) {
   var originCode = cities [params.origin];
   var destinationCode = cities [params.destination];
   var date = params.departure.split("-").reverse().join("-");
