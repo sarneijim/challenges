@@ -5,12 +5,12 @@ block content
     .results__header
       .results__header--information
         .results__header__title
-          span.results__title--location Montreal #{origin}
+          span.results__title--location #{origin}
           span.results__title--arrow.fa.fa-long-arrow-right
-          span.results__title--location #{destination} new Nyork
+          span.results__title--location #{destination}
         .results__header__details
-          span.results__details--data 26-05-02
-          span.results__details--data 2 passangers
+          span.results__details--data #{date}
+          span.results__details--data #{passengers} passengers
       a.results__header--search(data-toggle="collapse", data-target="#search")
     #search.collapse
       include _search.jade

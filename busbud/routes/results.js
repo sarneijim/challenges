@@ -2,6 +2,10 @@ var express = require('express');
 var router = express.Router();
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var dateFormat = require('dateformat');
+var cities = {
+  "New York": "dr5reg",
+  "Montreal": "f25dvk"
+}
 
 /* GET results page. */
 router.get('/', function(req, res, next) {
@@ -19,8 +23,17 @@ router.get('/', function(req, res, next) {
 module.exports = router;
 
 function search(params, res) {
-  url = "https://napi.busbud.com/x-departures/dr5reg/f25dvk/2018-11-09";
-  var adult = "adult=3";
+  console.log(params);
+  originCode = cities [params.origin];
+  destinationCode = cities [params.destination];
+  date = params.departure.split("-").reverse().join("-");
+  url = "https://napi.busbud.com/x-departures/" + originCode + "/" + destinationCode + "/" + date;
+
+  var passengers = parseInt(params.adults) + parseInt(params.children) + parseInt(params.seniors);
+  var adults = "adult=" + params.adults;
+  var children = "child=" + params.children;
+  var seniors = "senior=" + params.seniors;
+
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
@@ -76,15 +89,23 @@ function search(params, res) {
           results.destination.push(destination);
 
           //Price
+          console.log(item_specific);
           price = item_specific.prices.total / 100 + "CAD";
           results.price.push(price);
         });
-        res.render('results', { title: "Busbud-Results", results: results });
+        res.render('results', {
+          title: "Busbud-Results",
+          results: results,
+          origin: params.origin,
+          destination: params.destination,
+          date: params.departure,
+          passengers: passengers
+        });
       }
     }
 
   };
-  xhr.open("GET", url+"?"+params, true);
+  xhr.open("GET", url+"?"+ adults + "&" + children + "&" + seniors+ "&child_ages=6&senior_ages=65");
   xhr.setRequestHeader( 'Content-Type',   'application/json' );
   xhr.setRequestHeader( 'Accept', 'application/vnd.busbud+json; version=2; profile=https://schema.busbud.com/v2/' );
   xhr.setRequestHeader("X-Busbud-Token", "PARTNER_AHm3M6clSAOoyJg4KyCg7w");
