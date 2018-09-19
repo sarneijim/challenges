@@ -33,16 +33,15 @@ $(".passenger--subtract").each(function () {
   };
 });
 
-// Funcion to add passengers(no more than 5 passengers)
+// Funcion to add passengers(no more than 10 passengers)
 $(".passenger--add").each(function () {
   this.onclick =function(){
     var specificPassengers = $(this).siblings( "input" );
     var specificValue = Number(specificPassengers.val()) + 1;
-
     var totalPassengers = $(".passenger--number");
     var totalValue = Number(totalPassengers.html()) + 1;
 
-    if (totalValue <= 5){
+    if (totalValue <= 10){
       specificPassengers.val(specificValue);
       totalPassengers.html(totalValue);
     }
