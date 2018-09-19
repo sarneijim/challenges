@@ -78,7 +78,7 @@ label, .label {
   width: calc(100% - 20px);
   padding: 0;
   list-style: none;
-  z-index: 1; }
+  z-index: 4; }
   .search__options li {
     padding: 5px 14px; }
     .search__options li:hover {
