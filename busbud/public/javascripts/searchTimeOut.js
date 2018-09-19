@@ -3,7 +3,7 @@ $('#loadingModal').on('show.bs.modal', function(){
   clearTimeout(myModal.data('hideInterval'));
   myModal.data('hideInterval', setTimeout(function(){
       myModal.addClass('results--error');
-  }, 20000));
+  }, 25000));
 });
 
 $('.modal__error').on('click', function(){
