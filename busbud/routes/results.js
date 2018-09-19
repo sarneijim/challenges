@@ -52,7 +52,7 @@ function search(params, res) {
   xhr.open("GET", url+"?"+ urlParams);
   xhr.setRequestHeader( 'Content-Type',   'application/json' );
   xhr.setRequestHeader( 'Accept', 'application/vnd.busbud+json; version=2; profile=https://schema.busbud.com/v2/' );
-  xhr.setRequestHeader("X-Busbud-Token", "PARTNER_AHm3M6clSAOoyJg4KyCg7w");
+  xhr.setRequestHeader("X-Busbud-Token", process.env.X_BUSBUD_TOKEN);
   xhr.send();
 
   xhr.onreadystatechange = function() {
