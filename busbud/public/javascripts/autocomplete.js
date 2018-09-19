@@ -4,7 +4,7 @@ var originOptions = document.getElementsByClassName("search__options")[0];
 var destinationInput = document.getElementById("destination");
 var destinationOptions = document.getElementsByClassName("search__options")[1];
 
-var cityArray = ['New York', 'Montreal'];
+var cityArray = ['New York', 'Montreal', 'Toronto', 'Vancouver', 'Ottawa', 'Tadoussac', 'Quebec', 'Calgary', 'Red Deer'];
 
 // Origin functions
 originInput.onclick =function(){

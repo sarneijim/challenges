@@ -1,3 +1,4 @@
+
 var dateSelect     = $('#bus-datepicker');
 var dateDepart     = $('#departure');
 

@@ -39,4 +39,9 @@
               .passenger--add
 
     .search__form__button
-      button#search__btn.btn.btn-primary.btn-block.error-origin.error-destination(type='submit' disabled) Search for buses
+      button#search__btn.btn.btn-primary.btn-block.error-origin.error-destination(type='submit' data-toggle="modal" data-target="#loadingModal" disabled) Search for buses
+
+include _modal.jade
+
+
+

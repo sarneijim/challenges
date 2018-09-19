@@ -15,8 +15,6 @@ $(".passengers__details").click(function(e) {
 });
 
 
-
-
 // Funcion to subtract passengers(no less than 1 passengers)
 $(".passenger--subtract").each(function () {
   this.onclick =function(){
