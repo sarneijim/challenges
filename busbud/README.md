@@ -35,3 +35,7 @@ npm start
 - ExpressJS
 - SASS
 - Jade
+
+## Aditional information
+
+To check the commit history: https://github.com/sarneijim/challenges/
