@@ -3,16 +3,16 @@
     .search__form__field
       .form-group
         label(for='origin') #{translation.LABEL_FROM}:
-        input#origin.form-control(type='text' placeholder='#{translation.INPUT_CITY}' name='origin' autocomplete='off' value="#{origin}")
+        input#origin.form-control(type='text' placeholder='#{translation.INPUT_CITY}' name='origin' autocomplete='off')
         ul.search__options
       .form-group
         label(for='destination') #{translation.LABEL_TO}:
-        input#destination.form-control(type='text' placeholder= '#{translation.INPUT_CITY}' name='destination' autocomplete='off' value="#{destination}")
+        input#destination.form-control(type='text' placeholder= '#{translation.INPUT_CITY}' name='destination' autocomplete='off')
         ul.search__options
       .form-group
         label(for='departure') #{translation.LABEL_DEPART}:
         #bus-datepicker(class='input-daterange input-group')
-          input#departure.form-control(type='text' placeholder='dd-mm-yyyy' autocomplete="off" class='input-sm form-control' name='departure' data-date-format='DD, MM d' readonly= "readonly" value = "#{date}")
+          input#departure.form-control(type='text' placeholder='dd-mm-yyyy' autocomplete="off" class='input-sm form-control' name='departure' data-date-format='DD, MM d' readonly= "readonly")
       .passengers.form-group
         .label #{translation.LABEL_TRAVELLERS}:
         .form-control
