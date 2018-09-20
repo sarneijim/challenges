@@ -50,6 +50,8 @@
 .results__list{
   padding: 0;
   list-style-type: none;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 .results__item{
   display: flex;

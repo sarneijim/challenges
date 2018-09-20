@@ -14,5 +14,8 @@
   "PROMOTION_TRIP": "Viajando desde Nueva York",
   "PROMOTION_TRIP_DATE": "Sep 28",
   "PROMOTION_DATE": "29 Sept",
-  "PROMOTION_BUTTON": "¡Únete a la fiesta!"
+  "PROMOTION_BUTTON": "¡Únete a la fiesta!",
+  "PROMOTION_URL": "/results?lang=es&origin=New+York&destination=Montreal&departure=28-09-2018&adults=1&children=0&seniors=0",
+  "ERROR_RESULT": "No hay resultados encontrados",
+  "ERROR_SEARCH": "Error en la búsqueda"
 }

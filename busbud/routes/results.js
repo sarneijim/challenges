@@ -15,16 +15,7 @@ var cities = {
 };
 var numResults = 0;
 
-var results = {
-  departure: [],
-  arrival: [],
-  diffDays: [],
-  diffTime: [],
-  origin: [],
-  destination: [],
-  price: [],
-  currency: []
-};
+
 
 /* GET results page. */
 router.get('/', function(req, res, next) {
@@ -34,11 +25,24 @@ router.get('/', function(req, res, next) {
   destination = req.query.destination;
   departure = req.query.departure;
   passengers = req.query.passengers;
-  search(req.query, res, req);
+  language = req.i18n_lang;
+
+  var results = {
+    departure: [],
+    arrival: [],
+    diffDays: [],
+    diffTime: [],
+    origin: [],
+    destination: [],
+    price: [],
+    currency: []
+  };
+
+  search(req.query, res, language, results);
 
 });
 
-function search(params, res, req) {
+function search(params, res, language, results) {
   var originCode = cities [params.origin];
   var destinationCode = cities [params.destination];
   var date = params.departure.split("-").reverse().join("-");
@@ -46,7 +50,7 @@ function search(params, res, req) {
   var passengers = parseInt(params.adults) + parseInt(params.children) + parseInt(params.seniors);
 
   var url = "https://napi.busbud.com/x-departures/" + originCode + "/" + destinationCode + "/" + date + "/poll";
-  var urlParams = queryParams(params, numResults);
+  var urlParams = queryParams(params, numResults, language);
 
   // Call busbud api
   var xhr = new XMLHttpRequest();
@@ -75,7 +79,7 @@ function search(params, res, req) {
           });
         }else{
           numResults = results.price.length;
-          search(params, res);
+          search(params, res, language, results);
         }
       }
     }
@@ -85,7 +89,7 @@ function search(params, res, req) {
 }
 
 // Querystring parameters (passangers and poll)
-function queryParams(params, num){
+function queryParams(params, num, language){
   var adults = parseInt(params.adults)
   var children = parseInt(params.children);
   var seniors = parseInt(params.seniors);
@@ -99,7 +103,7 @@ function queryParams(params, num){
   if (seniors > 0){
     queryAges += "&senior_ages=" + Array(seniors).fill(65).join(",");
   };
-  return "currency=CAD&index=" + num + "&adult=" + adults + "&child=" + children + "&senior=" + seniors + queryAges;
+  return "lang=" + language + "&index=" + num + "&adult=" + adults + "&child=" + children + "&senior=" + seniors + queryAges;
 }
 
 
@@ -148,7 +152,6 @@ function addResults(results, item_specific, response){
   //Currency
   currency = item_specific.prices.currency
   results.currency.push(currency);
-
   return results;
 }
 
