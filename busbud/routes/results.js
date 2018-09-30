@@ -52,40 +52,55 @@ function search(params, res, language, results) {
   var url = "https://napi.busbud.com/x-departures/" + originCode + "/" + destinationCode + "/" + date + "/poll";
   var urlParams = queryParams(params, numResults, language);
 
-  // Call busbud api
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", url+"?"+ urlParams);
-  xhr.setRequestHeader( 'Content-Type',   'application/json' );
-  xhr.setRequestHeader( 'Accept', 'application/vnd.busbud+json; version=2; profile=https://schema.busbud.com/v2/' );
-  xhr.setRequestHeader("X-Busbud-Token", process.env.X_BUSBUD_TOKEN);
-  xhr.send();
+debugger;
 
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4) {
-      if (xhr.status === 200 || xhr.status === 304) {
-        var response = JSON.parse(xhr.responseText);
-        //Provide client side "results"
-        response.departures.forEach(function(item_specific) {
-          results = addResults(results, item_specific, response);
-        });
-        if(response.complete){
-          res.render('results', {
-            title: "Busbud-Results",
-            results: results,
-            origin: params.origin,
-            destination: params.destination,
-            date: params.departure,
-            passengers: passengers
-          });
-        }else{
-          numResults = results.price.length;
-          search(params, res, language, results);
-        }
-      }
+
+
+
+
+  fetch(url+"?"+ urlParams, {
+    method: 'get',
+    headers: {
+      "Content-type": "application/json",
+      "Accept": "application/json",
+      "Content-type": "application/vnd.busbud+json; version=2; profile=https://schema.busbud.com/v2/",
+      "X-Busbud-Token": process.env.X_BUSBUD_TOKEN
+    }
+  })
+  .then(json)
+  .then(function (data) {
+    debugger;
+    var response = JSON.parse(xhr.responseText);
+    //Provide client side "results"
+    response.departures.forEach(function(item_specific) {
+      results = addResults(results, item_specific, response);
+    });
+    if(response.complete){
+      res.render('results', {
+        title: "Busbud-Results",
+        results: results,
+        origin: params.origin,
+        destination: params.destination,
+        date: params.departure,
+        passengers: passengers
+      });
+    }else{
+      numResults = results.price.length;
+      search(params, res, language, results);
     }
 
-  };
-
+  })
+  .catch(function (error) {
+    console.log('Failed', error);
+    debugger;
+    res.render('results', {
+      title: "Busbud-Results",
+      results: [],
+      origin: params.origin,
+      destination: params.destination,
+      date: params.departure,
+      passengers: passengers
+ });
 }
 
 // Querystring parameters (passangers and poll)
